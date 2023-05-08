@@ -1,6 +1,4 @@
-// Generated code
-
-package generated
+package calc
 
 func Multiply(values []float64) float64 {
 	var res float64 = 1

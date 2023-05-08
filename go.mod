@@ -4,8 +4,9 @@ go 1.20
 
 require (
 	github.com/caarlos0/env/v6 v6.10.1
-	github.com/go-playground/validator/v10 v10.12.0
+	github.com/go-playground/validator/v10 v10.13.0
 	github.com/joho/godotenv v1.5.1
+	github.com/mailru/easyjson v0.7.7
 	github.com/nats-io/nats.go v1.25.0
 )
 
@@ -14,8 +15,7 @@ require (
 	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
-	github.com/leodido/go-urn v1.2.2 // indirect
-	github.com/mailru/easyjson v0.7.7 // indirect
+	github.com/leodido/go-urn v1.2.3 // indirect
 	github.com/nats-io/nats-server/v2 v2.9.16 // indirect
 	github.com/nats-io/nkeys v0.4.4 // indirect
 	github.com/nats-io/nuid v1.0.1 // indirect

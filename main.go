@@ -11,13 +11,9 @@ import (
 	"github.com/nats-io/nats.go"
 
 	"demo/data"
+	"demo/process"
 )
 
-//go:generate go run ./gen/generator.go Sum 10
-//go:generate go run ./gen/generator.go Multiply 10
-//go:generate go run ./gen/generator.go Mean
-//go:generate go run ./gen/generator.go Variance 10
-//go:generate go run ./gen/generator.go StdDev
 //go:generate easyjson -all ./msg/request.go
 //go:generate easyjson -all ./msg/response.go
 
@@ -57,8 +53,10 @@ func main() {
 
 	defer conn.Close()
 
-	pool := NewPool(conf.NutsSubject, conf.PoolSize)
-	if err := pool.Run(conn, storage); err != nil {
+	processor := process.NewProcessor(storage)
+
+	pool := NewPool(conf.NutsSubject, conf.PoolSize, processor)
+	if err := pool.Run(conn); err != nil {
 		log.Println("pool init error")
 		log.Panic(err)
 	}
